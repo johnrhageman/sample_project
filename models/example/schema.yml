@@ -27,3 +27,9 @@ models:
           - name: row_count
             description: the number of rows per user
           
+sources:
+  - name: RAW_PLATFORM
+    database: RAW  # Tell dbt to look for the source in the "raw" database
+    schema: PLATFORM_REPLICA_PUBLIC # You wouldn't put your source data in public, would you?
+    tables:
+      - name: ENDEAVOR_ASSIGNMENTS
