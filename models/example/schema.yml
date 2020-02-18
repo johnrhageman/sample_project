@@ -21,3 +21,6 @@ sources:
       - name: OPERATORS
       - name: VENDORS
       - name: SUBCONTRACTOR_PAYMENT_SCHEDULES
+      - name: LABOR_ACCOUNTING_RATES
+      - name: LABOR_ACCOUNTING_RATE_SETS
+      - name: SUBCONTRACTOR_JOBS

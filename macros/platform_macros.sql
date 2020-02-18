@@ -48,5 +48,13 @@
     END 
 {% endmacro %}
 
-
+{% macro array_contains_column (column_name, values_list) %}
+    ARRAY_CONTAINS(
+        {{ column_name }}::variant, ARRAY_CONSTRUCT(
+            {%- for value in values_list -%}
+                '{{ value }}'
+                {%- if not loop.last -%},{%- endif -%}
+            {%- endfor -%})
+    ) 
+{% endmacro %}
 
