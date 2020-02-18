@@ -2,34 +2,22 @@
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
+    - name: production_user
+      description: "Copying the production_user materialized view from the analytics db"
       columns:
-          - name: id
+          - name: company_id
             description: "The primary key for this table"
             tests:
                 - unique
                 - not_null
-
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
-    - name: my_thid_dbt_model
-      description: 'sample snowflake model'
-      columns:
-          - name: user_id
-            description: the user id
-          - name: row_count
-            description: the number of rows per user
           
 sources:
   - name: RAW_PLATFORM
     database: RAW  # Tell dbt to look for the source in the "raw" database
     schema: PLATFORM_REPLICA_PUBLIC # You wouldn't put your source data in public, would you?
     tables:
-      - name: ENDEAVOR_ASSIGNMENTS
+      - name: USERS
+      - name: SUBCONTRACTOR_PROFILES
+      - name: OPERATORS
+      - name: VENDORS
+      - name: SUBCONTRACTOR_PAYMENT_SCHEDULES

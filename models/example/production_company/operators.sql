@@ -1,0 +1,30 @@
+ {{ config(materialized='ephemeral') }}
+
+ 
+ SELECT NULL::character varying AS city,
+    'operator'::text AS company_class,
+    operators.connect_enabled,
+    NULL AS connect_status,
+    operators.created_at,
+    NULL::text AS description,
+    NULL::character varying AS employee_count,
+    'op'::text || operators.id AS id,
+    operators.job_sheet_enabled,
+    operators.job_sheet_signature_required,
+    operators.labor_approval_flow,
+    NULL::text AS labor_enabled,
+    operators.labor_fee_percentage,
+    operators.labor_msa,
+    operators.labor_only,
+    operators.labor_requirements,
+    NULL::character varying AS logo_url,
+    operators.name,
+    operators.id::character varying AS native_id,
+    NULL::character varying AS payment_schedule,
+    NULL::character varying AS phone,
+    NULL::character varying AS state,
+    operators.status,
+    NULL::character varying AS street,
+    NULL::character varying AS website_url,
+    NULL::character varying AS zipcode
+   FROM {{ source('RAW_PLATFORM', 'OPERATORS') }}
