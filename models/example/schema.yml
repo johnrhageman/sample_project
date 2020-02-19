@@ -10,6 +10,10 @@ models:
             tests:
                 - unique
                 - not_null
+          - name: origin
+            description: "The origin of the user account"
+            tests:
+              - is_valid_user_origin
           
 sources:
   - name: RAW_PLATFORM
