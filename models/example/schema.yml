@@ -1,6 +1,8 @@
 
 version: 2
 
+
+
 models:
     - name: production_user
       description: "Copying the production_user materialized view from the analytics db"

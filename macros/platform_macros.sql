@@ -48,6 +48,16 @@
     END 
 {% endmacro %}
 
+{%- macro generate_case_statement(case_and_values_dict, else_value) -%}
+    CASE 
+    {%- for key, value in case_and_values_dict.items() %}
+        WHEN {{ key }} THEN {{ value }}
+    {%- endfor %}
+    ELSE
+        {{ else_value }}
+    END
+{% endmacro %}
+
 {% macro array_contains_column (column_name, values_list) %}
     ARRAY_CONTAINS(
         {{ column_name }}::variant, ARRAY_CONSTRUCT(
